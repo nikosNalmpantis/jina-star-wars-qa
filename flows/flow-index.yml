@@ -1,0 +1,12 @@
+jtype: Flow
+version: '1'
+with:
+  workspace: $JINA_WORKSPACE
+  port_expose: $JINA_PORT
+executors:
+  - name: transformer
+    uses: 'jinahub://TransformerTorchEncoder'
+    uses_with:
+      device: 'cuda'
+  - name: indexer
+    uses: 'jinahub://SimpleIndexer'

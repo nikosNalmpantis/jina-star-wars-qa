@@ -1,0 +1,4 @@
+click==8.0.1
+jina[standard,rich]==2.0.23
+torch==1.9.0
+transformers==4.10.0
