@@ -1,0 +1,19 @@
+jtype: Flow
+version: '1'
+with:
+  workspace: $JINA_WORKSPACE
+  port_expose: $JINA_PORT
+executors:
+  - name: transformer
+    uses: 'jinahub://TransformerTorchEncoder'
+    uses_with:
+      device: 'cuda'
+  - name: indexer
+    uses: 'jinahub://SimpleIndexer'
+  - name: ranker
+    uses: 'jinahub+docker://SimpleRanker'
+    uses_with:
+      metric: 'cosine'
+  - name: generator
+    uses: Generator
+    py_modules: "flows/generator_roberta.py"
