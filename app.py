@@ -45,7 +45,7 @@ def index(num_docs: int) -> None:
 def query(top_k: int) -> None:
     flow = Flow().load_config('flows/flow-query.yml')
     with flow:
-        text = input('Please type a sentence: ')
+        text = input('Please type a question: ')
         doc = Document(content=text)
 
         result = flow.post(on='/search', inputs=DocumentArray([doc]),
@@ -58,7 +58,7 @@ def query(top_k: int) -> None:
 
 def print_topk(resp: Document) -> None:
     for doc in resp.data.docs:
-        print(f"\n\nResult from app: {doc.tags['answer']}")
+        print(f"\n\nAnswer: {doc.tags['answer']}")
 
 
 @click.command()
