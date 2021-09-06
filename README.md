@@ -1,5 +1,7 @@
 # Star Wars Question-Answering Search System
 
+![](.github/images/Star-Wars.png)
+
 This is a simple example to show how to build a Question-Answering Search System based on Star Wars descriptions. It indexes the first paragraph of every text description found in [Wookieepedia](https://starwars.fandom.com/wiki/Main_Page) and then, when provided with a search query uses the most simillar ones to generate an answer.
 
 The app:
@@ -59,3 +61,9 @@ python app.py -t query
 >> Please type a question: Who is Darth Vader?
 Answer: Sith Lord Darth Vader
 ```
+
+### Docker
+```shell
+docker build . -t starwarsqa
+docker run --gpus all --name starwarsqa -it -d starwarsqa
+docker start -ai starwarsqa
