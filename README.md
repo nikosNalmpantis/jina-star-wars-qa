@@ -1,5 +1,7 @@
 # Star Wars Question-Answering Search System
 
+![](.github/images/Star-Wars.png)
+
 This is a simple example to show how to build a Question-Answering Search System based on Star Wars descriptions. It indexes the first paragraph of every text description found in [Wookieepedia](https://starwars.fandom.com/wiki/Main_Page) and then, when provided with a search query uses the most simillar ones to generate an answer.
 
 The app:
