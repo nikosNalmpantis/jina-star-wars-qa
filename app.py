@@ -86,8 +86,10 @@ def main(task: str, num_docs: int, top_k: int, data_set: str) -> None:
 
     if 'query' in task:
         if not os.path.exists(workspace):
-            logger.error(f'The directory {workspace} does not exist. Please index first via `python app.py -t index`')
-            sys.exit(1)
+            # logger.error(f'The directory {workspace} does not exist. Please index first via `python app.py -t index`')
+            # sys.exit(1)
+            logger.info(f"The directory {workspace} does not exist. Running indexing...")
+            index(num_docs)
 
     if task == 'index':
         index(num_docs)

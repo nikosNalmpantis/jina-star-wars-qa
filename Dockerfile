@@ -21,6 +21,6 @@ RUN chmod +x get_data.sh &&\
     sh get_data.sh
 
 
-RUN python3 app.py -t index
+#RUN python3 app.py -t index
 
 CMD ["python3", "app.py", "-t", "query"]
