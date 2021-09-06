@@ -3,6 +3,7 @@ __license__ = "Apache-2.0"
 
 import os
 import sys
+from typing import Iterator
 
 import click
 from jina import Flow, Document, DocumentArray
@@ -23,7 +24,7 @@ def config(dataset: str = "star-wars") -> None:
     os.environ.setdefault('JINA_PORT', str(45678))
 
 
-def input_generator(file_path: str, num_docs: int):
+def input_generator(file_path: str, num_docs: int) -> Iterator[Document]:
     with open(file_path) as file:
         lines = file.readlines()
     num_lines = len(lines)
@@ -53,12 +54,9 @@ def query(top_k: int) -> None:
                            line_format='text',
                            return_results=True,
                            )
-        print_topk(result[0])
 
-
-def print_topk(resp: Document) -> None:
-    for doc in resp.data.docs:
-        print(f"\n\nAnswer: {doc.tags['answer']}")
+        for doc in result[0].data.docs:
+            print(f"\n\nAnswer: {doc.tags['answer']}")
 
 
 @click.command()
