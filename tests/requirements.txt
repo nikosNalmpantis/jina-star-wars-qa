@@ -1,5 +1,6 @@
 click==8.0.1
 git+https://github.com/jina-ai/jina-commons@v0.0.4
 jina[standard,rich]==2.0.23
+pytest==6.2.5
 torch==1.9.0
 transformers==4.10.0
