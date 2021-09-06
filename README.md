@@ -61,3 +61,9 @@ python app.py -t query
 >> Please type a question: Who is Darth Vader?
 Answer: Sith Lord Darth Vader
 ```
+
+### Docker
+```shell
+docker build . -t starwarsqa
+docker run --gpus all --name starwarsqa -it -d starwarsqa
+docker start -ai starwarsqa

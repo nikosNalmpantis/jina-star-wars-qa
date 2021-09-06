@@ -1,5 +1,5 @@
 #FROM jinaai/jina:2.0-py38
-FROM nvidia/cuda:11.1-runtime
+FROM nvidia/cuda:11.1-runtime-ubuntu20.04
 
 WORKDIR /workspace
 
@@ -8,6 +8,8 @@ ENV TZ=Europe/Amsterdam \
     LANG=C.UTF-8 \
     LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/nvidia/lib64 \
     PATH=${PATH}:/usr/local/nvidia/bin
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 COPY ./requirements.txt ./
 
